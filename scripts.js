@@ -13,7 +13,7 @@ input.addEventListener('keydown', function(event) {
         // Handle different commands
         switch (command) {
             case 'help':
-                output.innerHTML += enterlines(help);
+                output.innerHTML += help_lines;
                 break;
             case 'about':
                 output.innerHTML += about;
@@ -33,16 +33,50 @@ input.addEventListener('keydown', function(event) {
             case 'clear':
                 output.innerHTML = header;
                 break;
+            case 'email':
+                output.innerHTML += "Redirecting to Email Client...<br><br>";
+                newTab(email);
+                break;
+            case 'github':
+                output.innerHTML += "Redirecting to github...<br><br>";
+                newTab(github);
+                break;
+            case 'linkedin':
+                output.innerHTML += "Redirecting to linkedin...<br><br>";
+                newTab(linkedin);
+                break;
+            case 'leetcode':
+                output.innerHTML += "Redirecting to leetcode...<br><br>";
+                newTab(leetcode);
+                break;           
+            case 'twitter':
+                output.innerHTML += "Redirecting to twitter...<br><br>";
+                newTab(twitter);
+                break;        
+            case 'portfolio':
+                output.innerHTML += "Redirecting to (old) portfolio website";
+                newTab(old_portfolio);
+                break;
             case 'banner':
+            case 'hello':
                 output.innerHTML += banner_lines;
                 break;
             default:
                 output.innerHTML += unknown;
         }
 
-        // Scroll to the bottom of the output area
-        output.scrollTop = output.scrollHeight;
+        window.scrollTo({
+            top: document.body.offsetHeight,
+            behavior: 'smooth'
+        });
+  
     }
 });
+
+function newTab(link) {
+    setTimeout(function() {
+        window.open(link, "_blank");
+    }, 500);
+}
   
 

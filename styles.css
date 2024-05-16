@@ -9,6 +9,7 @@ body {
     margin: 0;
     font-size: 18px;
     margin: 10px;
+    scroll-behavior: smooth;
 }
 
 .terminal{
@@ -58,7 +59,7 @@ a{
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 }
 .inputline .arrow{
     display: block;
