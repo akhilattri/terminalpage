@@ -3,6 +3,8 @@ const output = document.getElementById('output');
 
 input.focus(); // Focus on input when the page loads    
 
+output.innerHTML = header;
+
 input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const command = input.value.trim().toLowerCase();
@@ -26,13 +28,13 @@ input.addEventListener('keydown', function(event) {
                 output.innerHTML += contact;
                 break;
             case 'social':
-                output.innerHTML += enterlines(social);
+                output.innerHTML += links;
                 break;
             case 'clear':
-                output.innerHTML = welcome;
+                output.innerHTML = header;
                 break;
             case 'banner':
-                output.innerHTML = enterlines(banner);
+                output.innerHTML += banner_lines;
                 break;
             default:
                 output.innerHTML += unknown;
@@ -43,19 +45,4 @@ input.addEventListener('keydown', function(event) {
     }
 });
   
-function enterlines(container) {
-    var t = "";
-    container.forEach(function(text) {
-        t += '<br>';
-        for (let i = 0; i < text.length; i++) {
-            if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
-                t += "&nbsp; &nbsp;";
-                i++;
-            } else {
-                t += text.charAt(i);
-            }
-        }
-    });
-    return t;
-}
-  
+

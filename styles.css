@@ -3,7 +3,7 @@ body {
     border-radius: 2px;
     border-radius: 10px;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: cursor, monospace;
     background-color: #2b2f34;
     color: aliceblue;
     margin: 0;
@@ -27,10 +27,43 @@ h1 {
 } */
 
 #input{
-    border: 0px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 10px;
     background-color: transparent;
     color: aliceblue;
+    width: 90%;
+    padding: 10px;
 }
 #input:active{
     border: 0px;
+}
+a{
+    color: orange;
+}
+
+.command {
+    /* cursor: text;
+    height: 50px; */
+    width: 100px;
+    color: #73ABAD;
+    text-shadow: 0 0 5px #73ABAD;
+}
+
+/* span{
+    width: 50px;
+} */
+
+.inputline{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.inputline .arrow{
+    display: block;
+}
+.inputline .inp{
+    display: flex;
+    width: 100%;
 }
