@@ -34,6 +34,23 @@ help = [
     '<span class="command">clear</span>     clear terminal<br>',
     '<span class="command">hello</span>     display the header<br>',
 ];
+const commands = [
+    "help",
+    "about",
+    "social",
+    "twitter",
+    "leetcode",
+    "linkedin",
+    "github",
+    "banner",
+    "hello",
+    "clear",
+    "portfolio",
+    "projects",
+    "email",
+    "skills",
+    "contact"
+];
 
 banner2 = [
 "<pre>",

@@ -24,15 +24,15 @@ a{
     text-shadow: 0 0 5px #73ABAD;
 }
 
-.input{
+.input-wrapper{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.input .arrow{
+.input-wrapper .arrow{
     display: block;
 }
-.input .box{
+.input-wrapper .box{
     display: flex;
     width: 100%;
 }
@@ -51,4 +51,39 @@ a{
 #inputtext:focus{
     /* border: 0px; */
     outline: none;
+}
+#inputtext::placeholder{
+    color: slategray;
+}
+
+/* *************suggestion************* */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+#inputtext {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+#terminal-suggestion {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: slategray;
+    position: absolute;
+    top: 3px;
+    left: 25px;
+    pointer-events: none;
+    z-index: 1;
+}
+#terminal {
+    position: relative;
+    width: 100%;
 }

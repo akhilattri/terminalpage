@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="terminal">
+    <div id="terminal">
 
-        <div class="output" id="output">
+        <div id="output-wrapper">
             <p>There must be some error in loading, please reload</p>
         </div>
 
-        <div class="input">
+        <div class="input-wrapper">
 
             <div class="arrow">
                 >&emsp;
@@ -21,6 +21,10 @@
 
             <div class="box">
                 <input type="text" class="inputtext" list="commands" id="inputtext" placeholder="Type a command...">
+            </div>
+
+            <div id="terminal-suggestion">
+
             </div>
 
         </div>

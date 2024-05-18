@@ -1,35 +1,29 @@
 const input = document.getElementById('inputtext');
-const output = document.getElementById('output');
+const output = document.getElementById('output-wrapper');
+const suggestionField = document.getElementById('terminal-suggestion');
 
 input.focus(); // Focus on input when the page loads    
 
 output.innerHTML = header + tip;
 
-const commands = [
-    "help",
-    "about",
-    "social",
-    "twitter",
-    "leetcode",
-    "linkedin",
-    "github",
-    "banner",
-    "hello",
-    "clear",
-    "portfolio",
-    "projects",
-    "email",
-    "skills",
-    "contact"
-];
+input.addEventListener('input', () => {
+    const command = input.value;
+    const matches = commands.filter(cmd => cmd.toLowerCase().startsWith(command.toLowerCase()));
+    if (matches.length > 0 && command.length > 0) {
+        const match = matches[0];
+        suggestionField.textContent = match;
+        suggestionField.innerHTML = `<span style="color: transparent">${command}</span>${match.slice(command.length)}`;
+    } else {
+        suggestionField.textContent = '';
+    }
+});
 
 input.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
         e.preventDefault(); // Prevent the default tab behavior
-        const inputval = input.value;
-        const matches = commands.filter(cmd => cmd.startsWith(inputval));
-        if (matches.length === 1) {
-            input.value = matches[0];
+        if (suggestionField.textContent) {
+            input.value = suggestionField.textContent;
+            suggestionField.textContent = '';
         }
     }
 });
@@ -37,6 +31,7 @@ input.addEventListener('keydown', (e) => {
 
 input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
+        suggestionField.textContent = '';
         const command = input.value.trim().toLowerCase();
         input.value = ''; // Clear input after pressing Enter
 
@@ -108,5 +103,3 @@ function newTab(link) {
         window.open(link, "_blank");
     }, 500);
 }
-  
-
