@@ -1,9 +1,39 @@
-const input = document.getElementById('input');
+const input = document.getElementById('inputtext');
 const output = document.getElementById('output');
 
 input.focus(); // Focus on input when the page loads    
 
-output.innerHTML = header;
+output.innerHTML = header + tip;
+
+const commands = [
+    "help",
+    "about",
+    "social",
+    "twitter",
+    "leetcode",
+    "linkedin",
+    "github",
+    "banner",
+    "hello",
+    "clear",
+    "portfolio",
+    "projects",
+    "email",
+    "skills",
+    "contact"
+];
+
+input.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+        e.preventDefault(); // Prevent the default tab behavior
+        const inputval = input.value;
+        const matches = commands.filter(cmd => cmd.startsWith(inputval));
+        if (matches.length === 1) {
+            input.value = matches[0];
+        }
+    }
+});
+
 
 input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -31,26 +61,26 @@ input.addEventListener('keydown', function(event) {
                 output.innerHTML += links;
                 break;
             case 'clear':
-                output.innerHTML = header;
+                output.innerHTML = banner_lines;
                 break;
             case 'email':
-                output.innerHTML += "Redirecting to Email Client...<br><br>";
+                output.innerHTML += "Redirecting to Email Client...";
                 newTab(email);
                 break;
             case 'github':
-                output.innerHTML += "Redirecting to github...<br><br>";
+                output.innerHTML += "Redirecting to github...";
                 newTab(github);
                 break;
             case 'linkedin':
-                output.innerHTML += "Redirecting to linkedin...<br><br>";
+                output.innerHTML += "Redirecting to linkedin...";
                 newTab(linkedin);
                 break;
             case 'leetcode':
-                output.innerHTML += "Redirecting to leetcode...<br><br>";
+                output.innerHTML += "Redirecting to leetcode...";
                 newTab(leetcode);
                 break;           
             case 'twitter':
-                output.innerHTML += "Redirecting to twitter...<br><br>";
+                output.innerHTML += "Redirecting to twitter...";
                 newTab(twitter);
                 break;        
             case 'portfolio':
@@ -64,7 +94,7 @@ input.addEventListener('keydown', function(event) {
             default:
                 output.innerHTML += unknown;
         }
-
+        output.innerHTML += "<br><br>";
         window.scrollTo({
             top: document.body.offsetHeight,
             behavior: 'smooth'

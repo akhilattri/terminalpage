@@ -1,48 +1,21 @@
 body {
+    scroll-behavior: smooth;
+    margin: 10px;
     border-style: solid;
-    border-radius: 2px;
     border-radius: 10px;
     padding: 20px;
     font-family: cursor, monospace;
-    background-color: #2b2f34;
     color: aliceblue;
-    margin: 0;
     font-size: 18px;
-    margin: 10px;
-    scroll-behavior: smooth;
+    background-color: #2b2f34;
 }
 
-.terminal{
-    height: 100%;
-}
-
-/* p{
-    font-size: 16px;
-} */
-h1 {
-    font-size: 24px;
-}
-
-/* .output p{
-    font-size: 16px;
-} */
-
-#input{
-    border: 1px;
-    border-style: solid;
-    border-radius: 10px;
-    background-color: transparent;
-    color: aliceblue;
-    width: 90%;
-    padding: 10px;
-}
-#input:active{
-    border: 0px;
-}
 a{
-    color: orange;
+    color: #73ABAD;
+    text-shadow: 0 0 5px #73ABAD;
 }
 
+/* for when help has to print commands and their description */
 .command {
     /* cursor: text;
     height: 50px; */
@@ -51,20 +24,31 @@ a{
     text-shadow: 0 0 5px #73ABAD;
 }
 
-/* span{
-    width: 50px;
-} */
-
-.inputline{
+.input{
     display: flex;
     flex-direction: row;
     align-items: center;
-
 }
-.inputline .arrow{
+.input .arrow{
     display: block;
 }
-.inputline .inp{
+.input .box{
     display: flex;
     width: 100%;
+}
+
+#inputtext{
+    border: solid;
+    border-radius: 5px;
+    /* box-shadow: 0 0 5px aliceblue; */
+    background-color: transparent;
+    font-family: cursor, monospace;
+    color: aliceblue;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+}
+#inputtext:focus{
+    /* border: 0px; */
+    outline: none;
 }

@@ -5,22 +5,20 @@ var email = 'mailto:akhilattri001+pf@gmail.com';
 var leetcode = "https://leetcode.com/u/akhilattri/"
 var old_portfolio = "https://akhilattri.github.io/portfolio/"
 
-let welcomeline = "<p>Welcome to My Portfolio!  <br><br> Enter 'help' to get started! <br><br></p>",
-    about = '<p>About Me: I am a web developer passionate about creating awesome projects!</p>',
-    projects = '<p>Projects: Here are some of my recent projects...</p>',
-    skills = '<p>Skills: I am proficient in HTML, CSS, JavaScript, and more!</p>',
-    contact = '<p>Contact: You can reach me at example@example.com</p>',
-    unknown = '<p>Command not recognized. Type "help" for a list of available commands.</p>';
+let welcomeline = "Welcome to My Portfolio!  <br><br> Enter 'help' to get started! <br><br> ",
+    tip = "[Tip: You can use Tab auto-complete] <br><br>",
+    about = 'About Me: I am a web developer passionate about creating awesome projects!',
+    projects = 'Projects: Here are some of my recent projects...',
+    skills = 'Skills: I am proficient in HTML, CSS, JavaScript, and more!',
+    contact = 'Contact: You can reach me at akhilattri001@gmail.com',
+    unknown = 'Command not recognized. Type "help" for a list of available commands.';
 
 social = [
-    "<br>",
-    'Twitter        <a href="' + twitter + '" target="_blank">twitter/akhilattri' + '</a>',
-    'linkedin       <a href="' + linkedin + '" target="_blank">linkedin/akhilattri' + "</a>",
-    'github         <a href="' + github + '" target="_blank">github/akhilattri' + "</a>",
-    "<br>"
+    'Twitter        <a href="' + twitter + '" target="_blank">twitter/akhilattri</a><br>',
+    'Linkedin       <a href="' + linkedin + '" target="_blank">linkedin/akhilattri</a><br>',
+    'Github         <a href="' + github + '" target="_blank">github/akhilattri</a><br>',
 ];
 help = [
-    '<br>',
     '<span class="command">about</span>     about me<br>',
     '<span class="command">social</span>    display all social links<br>',
     '<span class="command">leetcode</span>    visit my leetcode<br>',
@@ -35,7 +33,6 @@ help = [
     '<span class="command">email</span>     send an Email<br>',
     '<span class="command">clear</span>     clear terminal<br>',
     '<span class="command">hello</span>     display the header<br>',
-    '<br>',
 ];
 
 banner2 = [
@@ -51,11 +48,13 @@ banner2 = [
 ]
 
 banner = [
+    "<center>",
     "<pre>",
     "+-+-+-+-+-+ +-+-+-+-+-+",
     "|a|k|h|i|l| |a|t|t|r|i|",
     "+-+-+-+-+-+ +-+-+-+-+-+",
-    "</pre>"
+    "</pre>",
+    "</center>"
 ]
 
 function enterlines(container) {
@@ -71,12 +70,12 @@ function enterlines(container) {
             }
         }
     });
-    return t + "<br><br>";
+    return t;
 }
 
 banner_lines = enterlines(banner) ;
 
-header = banner_lines  + welcomeline;
+header = banner_lines + welcomeline;
 
 links = enterlines(social);
 
