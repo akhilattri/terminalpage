@@ -11,28 +11,29 @@ let welcomeline = "Welcome to My Portfolio!  <br><br> Enter 'help' to get starte
     projects = 'Projects: Here are some of my recent projects...',
     skills = 'Skills: I am proficient in HTML, CSS, JavaScript, and more!',
     contact = 'Contact: You can reach me at akhilattri001@gmail.com',
-    unknown = 'Command not recognized. Type "help" for a list of available commands.';
+    unknown = "is not a recognized command. Check for typo or enter 'help' to list all commands";
 
 social = [
-    'Twitter        <a href="' + twitter + '" target="_blank">twitter/akhilattri</a><br>',
-    'Linkedin       <a href="' + linkedin + '" target="_blank">linkedin/akhilattri</a><br>',
-    'Github         <a href="' + github + '" target="_blank">github/akhilattri</a><br>',
+    'Twitter        <a href="' + twitter + '" target="_blank">twitter/akhilattri</a>',
+    'Linkedin       <a href="' + linkedin + '" target="_blank">linkedin/akhilattri</a>',
+    'Github         <a href="' + github + '" target="_blank">github/akhilattri',
 ];
 help = [
-    '<span class="command">about</span>     about me<br>',
-    '<span class="command">social</span>    display all social links<br>',
-    '<span class="command">leetcode</span>    visit my leetcode<br>',
-    '<span class="command">linkedin</span>    visit my linkedin<br>',
-    '<span class="command">github</span>    visit my github<br>',
-    '<span class="command">twitter</span>    visit my github<br>',
-    '<span class="command">projects</span>  view projects<br>',
-    '<span class="command">portfolio</span>  view (old) portfolio website<br>',
-    '<span class="command">skills</span>    view things i can do<br>',
-    '<span class="command">contact</span>   connect with me<br>',
-    '<span class="command">help</span>      display all commands<br>',
-    '<span class="command">email</span>     send an Email<br>',
-    '<span class="command">clear</span>     clear terminal<br>',
-    '<span class="command">hello</span>     display the header<br>',
+    '<span class="command">about</span>         about me',
+    '<span class="command">social</span>        display all social links',
+    '<span class="command">leetcode</span>      visit my leetcode',
+    '<span class="command">linkedin</span>      visit my linkedin',
+    '<span class="command">github</span>        visit my github',
+    '<span class="command">twitter</span>       visit my github',
+    '<span class="command">projects</span>      view projects',
+    '<span class="command">portfolio</span>     view (old) portfolio website',
+    '<span class="command">skills</span>        view things i can do',
+    '<span class="command">contact</span>       connect with me',
+    '<span class="command">help</span>          display all commands',
+    '<span class="command">email</span>         send an Email',
+    '<span class="command">clear</span>         clear terminal',
+    '<span class="command">hello</span>         display the header',
+    '<span class="command">history</span>       display history of commands entered'
 ];
 const commands = [
     "help",
@@ -49,7 +50,8 @@ const commands = [
     "projects",
     "email",
     "skills",
-    "contact"
+    "contact",
+    "history"
 ];
 
 banner2 = [
@@ -77,10 +79,10 @@ banner = [
 function enterlines(container) {
     var t = "";
     container.forEach(function(text) {
-        t += '<br>';
+        t += '<br><br>';
         for (let i = 0; i < text.length; i++) {
             if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
-                t += "&nbsp; &nbsp;";
+                t += "&nbsp;&nbsp;";
                 i++;
             } else {
                 t += text.charAt(i);

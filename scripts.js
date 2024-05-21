@@ -1,3 +1,6 @@
+var commandHistory = [];
+var topIdx = 0;
+
 const input = document.getElementById('inputtext');
 const output = document.getElementById('output-wrapper');
 const suggestionField = document.getElementById('terminal-suggestion');
@@ -19,7 +22,7 @@ input.addEventListener('input', () => {
 });
 
 input.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
+    if (e.key === 'Tab' || e.key === 'ArrowRight') {
         e.preventDefault(); // Prevent the default tab behavior
         if (suggestionField.textContent) {
             input.value = suggestionField.textContent;
@@ -29,10 +32,28 @@ input.addEventListener('keydown', (e) => {
 });
 
 
-input.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
+input.addEventListener('keyup', (e) => {
+    if(e.key === 'ArrowUp' && topIdx != 0){
+        e.preventDefault();
+        topIdx -= 1;        
+        input.value = commandHistory[topIdx];
+    }
+    if(e.key === 'ArrowDown' && topIdx != commandHistory.length){
+        e.preventDefault();
+        topIdx += 1;
+
+        if(commandHistory[topIdx] === undefined)
+            input.value = "";
+        else
+            input.value = commandHistory[topIdx];
+    }
+    if (e.key === 'Enter') {
         suggestionField.textContent = '';
         const command = input.value.trim().toLowerCase();
+        commandHistory.push(command);
+
+        topIdx = commandHistory.length;
+
         input.value = ''; // Clear input after pressing Enter
 
         // Handle different commands
@@ -82,17 +103,20 @@ input.addEventListener('keydown', function(event) {
                 output.innerHTML += "Redirecting to (old) portfolio website";
                 newTab(old_portfolio);
                 break;
+            case 'history':
+                output.innerHTML += printHistory();
+                break;
             case 'banner':
             case 'hello':
                 output.innerHTML += banner_lines;
                 break;
             default:
-                output.innerHTML += unknown;
+                output.innerHTML += "'" + command + "'&emsp;" +unknown;
         }
-        output.innerHTML += "<br><br>";
+        output.innerHTML += "<br><br><br>";
         window.scrollTo({
             top: document.body.offsetHeight,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
   
     }
@@ -102,4 +126,12 @@ function newTab(link) {
     setTimeout(function() {
         window.open(link, "_blank");
     }, 500);
+}
+
+function printHistory(){
+    var res = "";
+    commandHistory.forEach((comm)=>{
+        res += ">&emsp;" + comm + "<br>";
+    })
+    return res;
 }
