@@ -6,7 +6,7 @@ var leetcode = "https://leetcode.com/u/akhilattri/"
 var old_portfolio = "https://akhilattri.github.io/portfolio/"
 
 let welcomeline = "Welcome to My Portfolio!  <br><br> Enter 'help' to get started! <br><br> ",
-    tip = "[Tip: You can use Tab auto-complete] <br><br>",
+    tip = "[Tip: You can use arrow keys for traversing command history] <br><br>",
     about = 'About Me: I am a web developer passionate about creating awesome projects!',
     projects = 'Projects: Here are some of my recent projects...',
     skills = 'Skills: I am proficient in HTML, CSS, JavaScript, and more!',
