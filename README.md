@@ -1,13 +1,13 @@
-working:
+has been done:
 - basic functionality
 - tab auto complete
 - suggestions
+- arrow up - down navigation
+- better positioning of suggestion strip
 
 to be added:
-- arrow up - down navigation
-- format change to fkcodes like?
+- format change (?)
 - mobile layout
-- better positioning of suggestion strip
 - disable default suggestion box
 - splash screen
 - favicon
